@@ -6,7 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
-import { BodyFieldComponent } from "../body-field/body-field.component";
+import { BodyBuilderComponent } from "../body-builder/body-builder.component";
 
 interface ColSpans {
   method: number;
@@ -29,7 +29,7 @@ interface Curl {
     FormsModule,
     MatCardModule,
     MatButtonModule,
-    BodyFieldComponent,
+    BodyBuilderComponent,
     MatTabsModule
   ],
   templateUrl: './curl-builder.component.html',

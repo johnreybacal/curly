@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BodyFieldComponent } from './body-field.component';
+import { BodyBuilderComponent } from './body-builder.component';
 
 describe('BodyFieldComponent', () => {
-  let component: BodyFieldComponent;
-  let fixture: ComponentFixture<BodyFieldComponent>;
+  let component: BodyBuilderComponent;
+  let fixture: ComponentFixture<BodyBuilderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BodyFieldComponent]
+      imports: [BodyBuilderComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
-    fixture = TestBed.createComponent(BodyFieldComponent);
+    fixture = TestBed.createComponent(BodyBuilderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

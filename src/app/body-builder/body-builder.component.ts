@@ -11,7 +11,7 @@ interface Body {
 }
 
 @Component({
-  selector: 'body-field',
+  selector: 'body-builder',
   standalone: true,
   imports: [
     FormsModule,
@@ -20,10 +20,10 @@ interface Body {
     MatInputModule,
     MatSelectModule
   ],
-  templateUrl: './body-field.component.html',
-  styleUrl: './body-field.component.scss'
+  templateUrl: './body-builder.component.html',
+  styleUrl: './body-builder.component.scss'
 })
-export class BodyFieldComponent {
+export class BodyBuilderComponent {
   types: string[] = [
     "none",
     "form-data",
