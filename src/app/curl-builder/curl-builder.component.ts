@@ -1,6 +1,7 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -12,15 +13,19 @@ interface ColSpans {
   url: number;
   body: number;
 }
+interface Curl {
+  method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE" ;
+  url: string;
+  body?: string;
+}
 
 @Component({
   selector: 'curl-builder',
   standalone: true,
-  imports: [MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule, MatGridListModule, MatCardModule],
+  imports: [MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule, MatGridListModule, MatCardModule, MatButtonModule],
   templateUrl: './curl-builder.component.html',
   styleUrl: './curl-builder.component.scss'
 })
-
 export class CurlBuilderComponent {
   methods: string[] = [
     "GET",
@@ -35,6 +40,10 @@ export class CurlBuilderComponent {
     url: 9,
     body: 12
   }
+  curl: Curl = {
+    method: "GET",
+    url: "",
+  }
 
   constructor(breakpointObserver: BreakpointObserver) {
     breakpointObserver.observe([
@@ -47,6 +56,14 @@ export class CurlBuilderComponent {
         body: 12
       }
     });
+  }
+
+  onChange(prop: keyof Curl, data: any) {
+    this.curl[prop] = data;
+  }
+
+  getCurl() {
+    console.log(this.curl)
   }
 
 }

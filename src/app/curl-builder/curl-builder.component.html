@@ -4,7 +4,7 @@
       <mat-grid-tile [colspan]="colspans.method">
         <mat-form-field>
           <mat-label>HTTP Method</mat-label>
-          <mat-select>
+          <mat-select [ngModel]="curl.method" (ngModelChange)="onChange('method', $event)">
             @for (method of methods; track method) {
             <mat-option [value]="method">{{method}}</mat-option>
             }
@@ -14,15 +14,18 @@
       <mat-grid-tile [colspan]="colspans.url">
         <mat-form-field>
           <mat-label>URL</mat-label>
-          <input matInput />
+          <input matInput [ngModel]="curl.url" (ngModelChange)="onChange('url', $event)" />
         </mat-form-field>
       </mat-grid-tile>
       <mat-grid-tile [colspan]="colspans.body" rowspan="4">
         <mat-form-field>
           <mat-label>Body</mat-label>
-          <textarea matInput rows="10"></textarea>
+          <textarea matInput rows="10" [ngModel]="curl.body" (ngModelChange)="onChange('body', $event)"></textarea>
         </mat-form-field>
       </mat-grid-tile>
     </mat-grid-list>
   </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button (click)="getCurl()">Get CURL</button>
+  </mat-card-actions>
 </mat-card>
