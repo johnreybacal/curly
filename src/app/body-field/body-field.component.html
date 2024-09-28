@@ -1,0 +1,23 @@
+<mat-grid-list cols="4" rowHeight="75px">
+  <mat-grid-tile colspan="1">
+    <mat-form-field>
+      <mat-label>Content-Type</mat-label>
+      <mat-select [ngModel]="body.type" (ngModelChange)="onChange('type', $event)">
+        @for (type of types; track type) {
+        <mat-option [value]="type">{{type}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3" rowspan="3">
+    @if (body.type == "json") {
+    <mat-form-field>
+      <mat-label>Body</mat-label>
+      <textarea matInput rows="7" [ngModel]="body.payload" (ngModelChange)="onChange('payload', $event)"></textarea>
+    </mat-form-field>
+    }
+    @else {
+    <p>WIP</p>
+    }
+  </mat-grid-tile>
+</mat-grid-list>

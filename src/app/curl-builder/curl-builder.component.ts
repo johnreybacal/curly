@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { BodyFieldComponent } from "../body-field/body-field.component";
 
 interface ColSpans {
   method: number;
@@ -14,7 +15,7 @@ interface ColSpans {
   body: number;
 }
 interface Curl {
-  method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE" ;
+  method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
   url: string;
   body?: string;
 }
@@ -22,7 +23,16 @@ interface Curl {
 @Component({
   selector: 'curl-builder',
   standalone: true,
-  imports: [MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule, MatGridListModule, MatCardModule, MatButtonModule],
+  imports: [
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    FormsModule,
+    MatGridListModule,
+    MatCardModule,
+    MatButtonModule,
+    BodyFieldComponent
+  ],
   templateUrl: './curl-builder.component.html',
   styleUrl: './curl-builder.component.scss'
 })

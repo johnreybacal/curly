@@ -17,11 +17,8 @@
           <input matInput [ngModel]="curl.url" (ngModelChange)="onChange('url', $event)" />
         </mat-form-field>
       </mat-grid-tile>
-      <mat-grid-tile [colspan]="colspans.body" rowspan="4">
-        <mat-form-field>
-          <mat-label>Body</mat-label>
-          <textarea matInput rows="10" [ngModel]="curl.body" (ngModelChange)="onChange('body', $event)"></textarea>
-        </mat-form-field>
+      <mat-grid-tile [colspan]="colspans.body" rowspan="5">
+        <body-field></body-field>
       </mat-grid-tile>
     </mat-grid-list>
   </mat-card-content>
