@@ -8,11 +8,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BodyBuilderComponent } from "../body-builder/body-builder.component";
 
-interface ColSpans {
-  method: number;
-  url: number;
-  body: number;
-}
 interface Curl {
   method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
   url: string;
