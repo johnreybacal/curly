@@ -5,8 +5,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 
+interface Type {
+  value: string
+  label: string
+}
+interface TypeGroup {
+  label: string;
+  types: Type[]
+}
+
 interface Body {
-  type: "none" | "form-data" | "x-www-form-urlencoded" | "json"
+  type: "none" | "multipart/form-data" | "application/x-www-form-urlencoded" | "application/json"
   payload?: string
 }
 
@@ -24,11 +33,29 @@ interface Body {
   styleUrl: './body-builder.component.scss'
 })
 export class BodyBuilderComponent {
-  types: string[] = [
-    "none",
-    "form-data",
-    "x-www-form-urlencoded",
-    "json"
+  typeGroups: TypeGroup[] = [
+    {
+      label: "Form",
+      types: [
+        {
+          label: "Form Data",
+          value: "multipart/form-data"
+        },
+        {
+          label: "Form URL encoded",
+          value: "application/x-www-form-urlencoded"
+        }
+      ]
+    },
+    {
+      label: "Text",
+      types: [
+        {
+          label: "JSON",
+          value: "application/json"
+        }
+      ]
+    }
   ]
   payload: string = ""
 
