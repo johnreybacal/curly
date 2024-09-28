@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 
@@ -18,7 +17,6 @@ interface Body {
     FormsModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatGridListModule,
     MatInputModule,
     MatSelectModule
   ],

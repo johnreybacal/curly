@@ -1,26 +1,24 @@
 <mat-card appearance="outlined">
   <mat-card-content>
-    <mat-grid-list cols="12" rowHeight="75px">
-      <mat-grid-tile [colspan]="colspans.method">
-        <mat-form-field>
-          <mat-label>HTTP Method</mat-label>
-          <mat-select [ngModel]="curl.method" (ngModelChange)="onChange('method', $event)">
-            @for (method of methods; track method) {
-            <mat-option [value]="method">{{method}}</mat-option>
-            }
-          </mat-select>
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile [colspan]="colspans.url">
-        <mat-form-field>
-          <mat-label>URL</mat-label>
-          <input matInput [ngModel]="curl.url" (ngModelChange)="onChange('url', $event)" />
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile [colspan]="colspans.body" rowspan="5">
-        <body-field></body-field>
-      </mat-grid-tile>
-    </mat-grid-list>
+    <mat-form-field>
+      <mat-label>HTTP Method</mat-label>
+      <mat-select [ngModel]="curl.method" (ngModelChange)="onChange('method', $event)">
+        @for (method of methods; track method) {
+        <mat-option [value]="method">{{method}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>URL</mat-label>
+      <input matInput [ngModel]="curl.url" (ngModelChange)="onChange('url', $event)" />
+    </mat-form-field>
+    <mat-tab-group>
+      <mat-tab label="Headers">Headers</mat-tab>
+      <mat-tab label="Parameters">Parameters</mat-tab>
+      <mat-tab label="Auth">Auth</mat-tab>
+      <mat-tab label="Body"> <body-field></body-field> </mat-tab>
+    </mat-tab-group>
+
   </mat-card-content>
   <mat-card-actions align="end">
     <button mat-button (click)="getCurl()">Get CURL</button>
