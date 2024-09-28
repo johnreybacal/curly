@@ -10,7 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
   standalone: true,
   imports: [MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule, MatGridListModule],
   templateUrl: './curl-builder.component.html',
-  styleUrl: './curl-builder.component.css'
+  styleUrl: './curl-builder.component.scss'
 })
 export class CurlBuilderComponent {
   methods: string[] = [

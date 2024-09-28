@@ -8,7 +8,7 @@ import { CurlBuilderComponent } from './curl-builder/curl-builder.component';
   standalone: true,
   imports: [RouterOutlet, CurlBuilderComponent, MatToolbarModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'curly';
