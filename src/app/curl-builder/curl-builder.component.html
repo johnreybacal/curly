@@ -1,1 +1,24 @@
-<p>curl-builder works!</p>
+<mat-grid-list cols="4" rowHeight="100px">
+  <mat-grid-tile colspan="1">
+    <mat-form-field>
+      <mat-label>HTTP Method</mat-label>
+      <mat-select>
+        @for (method of methods; track method) {
+        <mat-option [value]="method">{{method}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3">
+    <mat-form-field>
+      <mat-label>URL</mat-label>
+      <input matInput />
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="4">
+    <mat-form-field>
+      <mat-label>Body</mat-label>
+      <textarea matInput></textarea>
+    </mat-form-field>
+  </mat-grid-tile>
+</mat-grid-list>
