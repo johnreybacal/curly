@@ -1,24 +1,32 @@
 <mat-card appearance="outlined">
   <mat-card-content>
-    <mat-form-field>
-      <mat-label>HTTP Method</mat-label>
-      <mat-select [(ngModel)]="curl.method">
-        @for (method of methods; track method) {
-        <mat-option [value]="method">{{method}}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>URL</mat-label>
-      <input matInput [(ngModel)]="curl.url" />
-    </mat-form-field>
-    <mat-tab-group>
-      <mat-tab label="Headers">Headers</mat-tab>
-      <mat-tab label="Parameters">Parameters</mat-tab>
-      <mat-tab label="Auth">Auth</mat-tab>
-      <mat-tab label="Body"> <body-builder></body-builder> </mat-tab>
-    </mat-tab-group>
+    <div class="row">
+      <div class="col-3">
+        <mat-form-field>
+          <mat-label>HTTP Method</mat-label>
+          <mat-select [(ngModel)]="curl.method">
+            @for (method of methods; track method) {
+            <mat-option [value]="method">{{method}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-9">
+        <mat-form-field id="url-field">
+          <mat-label>URL</mat-label>
+          <input matInput [(ngModel)]="curl.url" />
+        </mat-form-field>
 
+      </div>
+    </div>
+    <div class="row">
+      <mat-tab-group>
+        <mat-tab label="Headers">Headers</mat-tab>
+        <mat-tab label="Parameters">Parameters</mat-tab>
+        <mat-tab label="Auth">Auth</mat-tab>
+        <mat-tab label="Body"> <body-builder></body-builder> </mat-tab>
+      </mat-tab-group>
+    </div>
   </mat-card-content>
   <mat-card-actions align="end">
     <button mat-button (click)="getCurl()">Get CURL</button>

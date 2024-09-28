@@ -1,19 +1,23 @@
 <div>
-  <mat-form-field>
-    <mat-label>Content-Type</mat-label>
-    <mat-select [(ngModel)]="body.type">
-      @for (type of types; track type) {
-      <mat-option [value]="type">{{type}}</mat-option>
-      }
-    </mat-select>
-  </mat-form-field>
-  @if (body.type == "json") {
-  <mat-form-field>
-    <mat-label>Body</mat-label>
-    <textarea matInput rows="7" [(ngModel)]="body.payload"></textarea>
-  </mat-form-field>
-  }
-  @else {
-  <p>WIP</p>
-  }
+  <div class="row">
+    <mat-form-field>
+      <mat-label>Content-Type</mat-label>
+      <mat-select [(ngModel)]="body.type">
+        @for (type of types; track type) {
+        <mat-option [value]="type">{{type}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    @if (body.type == "json") {
+    <mat-form-field id="body-field">
+      <mat-label>Body</mat-label>
+      <textarea matInput rows="7" [(ngModel)]="body.payload"></textarea>
+    </mat-form-field>
+    }
+    @else {
+    <p>WIP</p>
+    }
+  </div>
 </div>
