@@ -1,24 +1,28 @@
-<mat-grid-list cols="4" rowHeight="100px">
-  <mat-grid-tile colspan="1">
-    <mat-form-field>
-      <mat-label>HTTP Method</mat-label>
-      <mat-select>
-        @for (method of methods; track method) {
-        <mat-option [value]="method">{{method}}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
-  </mat-grid-tile>
-  <mat-grid-tile colspan="3">
-    <mat-form-field>
-      <mat-label>URL</mat-label>
-      <input matInput />
-    </mat-form-field>
-  </mat-grid-tile>
-  <mat-grid-tile colspan="4">
-    <mat-form-field>
-      <mat-label>Body</mat-label>
-      <textarea matInput></textarea>
-    </mat-form-field>
-  </mat-grid-tile>
-</mat-grid-list>
+<mat-card appearance="outlined">
+  <mat-card-content>
+    <mat-grid-list cols="12" rowHeight="75px">
+      <mat-grid-tile colspan="2">
+        <mat-form-field>
+          <mat-label>HTTP Method</mat-label>
+          <mat-select>
+            @for (method of methods; track method) {
+            <mat-option [value]="method">{{method}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="10">
+        <mat-form-field>
+          <mat-label>URL</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="12" rowspan="4">
+        <mat-form-field>
+          <mat-label>Body</mat-label>
+          <textarea matInput rows="10"></textarea>
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card-content>
+</mat-card>
