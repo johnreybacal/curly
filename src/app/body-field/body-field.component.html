@@ -1,7 +1,7 @@
 <div>
   <mat-form-field>
     <mat-label>Content-Type</mat-label>
-    <mat-select [ngModel]="body.type" (ngModelChange)="onChange('type', $event)">
+    <mat-select [(ngModel)]="body.type">
       @for (type of types; track type) {
       <mat-option [value]="type">{{type}}</mat-option>
       }
@@ -10,7 +10,7 @@
   @if (body.type == "json") {
   <mat-form-field>
     <mat-label>Body</mat-label>
-    <textarea matInput rows="7" [ngModel]="body.payload" (ngModelChange)="onChange('payload', $event)"></textarea>
+    <textarea matInput rows="7" [(ngModel)]="body.payload"></textarea>
   </mat-form-field>
   }
   @else {

@@ -36,11 +36,4 @@ export class BodyFieldComponent {
     type: "none"
   }
 
-  onChange(prop: keyof Body, data: any) {
-    this.body[prop] = data;
-    if (prop === "type") {
-      this.body.payload = "";
-    }
-  }
-
 }

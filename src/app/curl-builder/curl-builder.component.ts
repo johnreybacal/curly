@@ -68,10 +68,6 @@ export class CurlBuilderComponent {
     });
   }
 
-  onChange(prop: keyof Curl, data: any) {
-    this.curl[prop] = data;
-  }
-
   getCurl() {
     console.log(this.curl)
   }
