@@ -1,6 +1,6 @@
-<div>
-  <div class="row">
-    <mat-form-field>
+<div class="row">
+  <div class="col-3">
+    <mat-form-field appearance="outline">
       <mat-label>Content-Type</mat-label>
       <mat-select [(ngModel)]="body.type">
         <mat-option value="none">None</mat-option>
@@ -14,7 +14,7 @@
       </mat-select>
     </mat-form-field>
   </div>
-  <div class="row">
+  <div class="col-9">
     @if (body.type == "application/json") {
     <mat-form-field id="body-field" appearance="outline">
       <mat-label>Body</mat-label>
