@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { PropertyBuilderComponent } from '../property-builder/property-builder.component';
+import { Data, PropertyBuilderComponent } from '../property-builder/property-builder.component';
 
 interface Type {
   value: string
@@ -15,9 +15,10 @@ interface TypeGroup {
   types: Type[]
 }
 
-interface Body {
+export interface Payload {
   type: "none" | "multipart/form-data" | "application/x-www-form-urlencoded" | "application/json"
-  payload?: string
+  text?: string
+  form?: Data[]
 }
 
 @Component({
@@ -59,10 +60,31 @@ export class BodyBuilderComponent {
       ]
     }
   ]
-  payload: string = ""
 
-  body: Body = {
+  payload: Payload = {
     type: "none"
+  }
+
+  @Output() bodyChange = new EventEmitter<Payload>();
+
+  typeChanged() {
+    if (this.payload.type === "none") {
+      this.payload.text = ""
+      this.payload.form = []
+    } else if (this.payload.type === "application/json") {
+      this.payload.form = []
+    } else {
+      this.payload.text = ""
+    }
+  }
+
+  bodyChanged() {
+    this.bodyChange.emit(this.payload)
+  }
+
+  formChanged(data: Data[]) {
+    this.payload.form = data;
+    this.bodyChanged()
   }
 
 }

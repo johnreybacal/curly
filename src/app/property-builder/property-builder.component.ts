@@ -1,5 +1,5 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import { Component, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -38,8 +38,9 @@ export class PropertyBuilderComponent {
   dataSource = new MatTableDataSource<Data>(ELEMENT_DATA);
   selection = new SelectionModel<Data>(true, []);
 
-
   @ViewChild(MatTable) table?: MatTable<Data>;
+
+  @Output() formChange = new EventEmitter<Data[]>();
 
   addData() {
     this.dataSource.data.push({
@@ -50,8 +51,10 @@ export class PropertyBuilderComponent {
   }
 
   removeData(index: number) {
-    this.dataSource.data.splice(index, 1)
+    const data = this.dataSource.data.splice(index, 1)[0]
+    this.selection.deselect(data)
     this.table?.renderRows();
+    this.formChanged()
   }
 
   getData() {
@@ -62,5 +65,13 @@ export class PropertyBuilderComponent {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'}`;
   }
 
+  onCheckbox(row: Data) {
+    this.selection.toggle(row)
+    this.formChanged()
+  }
+
+  formChanged() {
+    this.formChange.emit(this.selection.selected)
+  }
 
 }
