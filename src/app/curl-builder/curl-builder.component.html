@@ -14,7 +14,7 @@
       <div class="col-9 col-12-sm">
         <mat-form-field id="url-field" appearance="outline">
           <mat-label>URL</mat-label>
-          <input matInput [(ngModel)]="curl.url" />
+          <input matInput [(ngModel)]="curl.url" required="true" />
         </mat-form-field>
 
       </div>
@@ -29,8 +29,11 @@
         </mat-tab>
       </mat-tab-group>
     </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>CURL</mat-label>
+        <input matInput [ngModel]="getCurl()" readonly="true" />
+      </mat-form-field>
+    </div>
   </mat-card-content>
-  <mat-card-actions align="end">
-    <button mat-button (click)="getCurl()">Get CURL</button>
-  </mat-card-actions>
 </mat-card>

@@ -44,7 +44,20 @@ export class CurlBuilderComponent {
   }
 
   getCurl() {
-    console.log(this.curl)
+    let curl: string = `curl --request ${this.curl.method} --url ${this.curl.url}`
+
+    if (this.curl.payload?.type && this.curl.payload?.type !== "none") {
+      curl += ` --header "Content-type: ${this.curl.payload.type}"`
+
+      if (this.curl.payload?.type === "application/json") {
+        curl += ` --data '${this.curl.payload.text}'`
+      } else {
+        for (let data of this.curl.payload?.form ?? []) {
+          curl += ` --form ${data.field}=${data.value}`
+        }
+      }
+    }
+    return curl;
   }
 
   payloadChanged(body: Payload) {
