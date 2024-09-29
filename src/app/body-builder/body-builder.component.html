@@ -18,7 +18,7 @@
     @if (body.type == "application/json") {
     <mat-form-field id="body-field" appearance="outline">
       <mat-label>Body</mat-label>
-      <textarea matInput rows="10" [(ngModel)]="body.payload"></textarea>
+      <textarea matInput rows="12" [(ngModel)]="body.payload"></textarea>
     </mat-form-field>
     }
     @else if (["multipart/form-data",
