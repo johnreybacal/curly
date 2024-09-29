@@ -1,7 +1,7 @@
 <mat-card appearance="outlined">
   <mat-card-content>
     <div class="row">
-      <div class="col-3">
+      <div class="col-3 col-12-sm">
         <mat-form-field appearance="outline">
           <mat-label>HTTP Method</mat-label>
           <mat-select [(ngModel)]="curl.method">
@@ -11,7 +11,7 @@
           </mat-select>
         </mat-form-field>
       </div>
-      <div class="col-9">
+      <div class="col-9 col-12-sm">
         <mat-form-field id="url-field" appearance="outline">
           <mat-label>URL</mat-label>
           <input matInput [(ngModel)]="curl.url" />
