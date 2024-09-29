@@ -1,0 +1,27 @@
+<div class="table-container">
+  <button mat-raised-button (click)="addData()">
+    Add data
+  </button>
+  <button mat-raised-button (click)="getData()">
+    Get data
+  </button>
+  <table mat-table [dataSource]="dataSource">
+    <!-- Position Column -->
+    <ng-container matColumnDef="field">
+      <td mat-cell *matCellDef="let element;">
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Field" [(ngModel)]="element.field" />
+        </mat-form-field>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="value">
+      <td mat-cell *matCellDef="let element;">
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Value" [(ngModel)]="element.value" />
+        </mat-form-field>
+      </td>
+    </ng-container>
+
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

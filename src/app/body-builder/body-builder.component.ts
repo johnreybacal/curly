@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { PropertyBuilderComponent } from '../property-builder/property-builder.component';
 
 interface Type {
   value: string
@@ -27,7 +28,8 @@ interface Body {
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    PropertyBuilderComponent
   ],
   templateUrl: './body-builder.component.html',
   styleUrl: './body-builder.component.scss'

@@ -16,13 +16,15 @@
   </div>
   <div class="row">
     @if (body.type == "application/json") {
-    <mat-form-field id="body-field">
+    <mat-form-field id="body-field" appearance="outline">
       <mat-label>Body</mat-label>
-      <textarea matInput rows="7" [(ngModel)]="body.payload"></textarea>
+      <textarea matInput rows="10" [(ngModel)]="body.payload"></textarea>
     </mat-form-field>
     }
-    @else {
-    <p>WIP</p>
+    @else if (["multipart/form-data",
+    "application/x-www-form-urlencoded"].includes(body.type)){
+    <property-builder />
     }
+    @else {}
   </div>
 </div>
