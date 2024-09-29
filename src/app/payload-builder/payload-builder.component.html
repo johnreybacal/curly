@@ -2,7 +2,7 @@
   <div class="col-3">
     <mat-form-field appearance="outline">
       <mat-label>Content-Type</mat-label>
-      <mat-select [(ngModel)]="payload.type" (ngModelChange)="bodyChanged()">
+      <mat-select [(ngModel)]="payload.type" (ngModelChange)="payloadChanged()">
         <mat-option value="none">None</mat-option>
         @for (group of typeGroups; track group) {
         <mat-optgroup [label]="group.label">
@@ -16,9 +16,9 @@
   </div>
   <div class="col-9">
     @if (payload.type == "application/json") {
-    <mat-form-field id="body-field" appearance="outline">
+    <mat-form-field id="payload-field" appearance="outline">
       <mat-label>Body</mat-label>
-      <textarea matInput rows="12" [(ngModel)]="payload.text" (ngModelChange)="bodyChanged()"></textarea>
+      <textarea matInput rows="12" [(ngModel)]="payload.text" (ngModelChange)="payloadChanged()"></textarea>
     </mat-form-field>
     }
     @else if (["multipart/form-data",

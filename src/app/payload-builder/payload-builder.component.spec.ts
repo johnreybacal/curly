@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BodyBuilderComponent } from './body-builder.component';
+import { PayloadBuilderComponent } from './payload-builder.component';
 
-describe('BodyFieldComponent', () => {
-  let component: BodyBuilderComponent;
-  let fixture: ComponentFixture<BodyBuilderComponent>;
+describe('PayloadFieldComponent', () => {
+  let component: PayloadBuilderComponent;
+  let fixture: ComponentFixture<PayloadBuilderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BodyBuilderComponent]
+      imports: [PayloadBuilderComponent]
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(BodyBuilderComponent);
+    fixture = TestBed.createComponent(PayloadBuilderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

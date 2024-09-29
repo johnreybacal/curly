@@ -6,12 +6,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
-import { BodyBuilderComponent, Payload } from "../body-builder/body-builder.component";
+import { Payload, PayloadBuilderComponent } from "../payload-builder/payload-builder.component";
 
 interface Curl {
   method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
   url: string;
-  body?: Payload;
+  payload?: Payload;
 }
 
 @Component({
@@ -24,7 +24,7 @@ interface Curl {
     FormsModule,
     MatCardModule,
     MatButtonModule,
-    BodyBuilderComponent,
+    PayloadBuilderComponent,
     MatTabsModule
   ],
   templateUrl: './curl-builder.component.html',
@@ -47,8 +47,8 @@ export class CurlBuilderComponent {
     console.log(this.curl)
   }
 
-  bodyChanged(body: Payload) {
-    this.curl.body = body
+  payloadChanged(body: Payload) {
+    this.curl.payload = body
   }
 
 }

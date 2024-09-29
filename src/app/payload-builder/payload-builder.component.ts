@@ -22,7 +22,7 @@ export interface Payload {
 }
 
 @Component({
-  selector: 'body-builder',
+  selector: 'payload-builder',
   standalone: true,
   imports: [
     FormsModule,
@@ -32,10 +32,10 @@ export interface Payload {
     MatSelectModule,
     PropertyBuilderComponent
   ],
-  templateUrl: './body-builder.component.html',
-  styleUrl: './body-builder.component.scss'
+  templateUrl: './payload-builder.component.html',
+  styleUrl: './payload-builder.component.scss'
 })
-export class BodyBuilderComponent {
+export class PayloadBuilderComponent {
   typeGroups: TypeGroup[] = [
     {
       label: "Form",
@@ -65,7 +65,7 @@ export class BodyBuilderComponent {
     type: "none"
   }
 
-  @Output() bodyChange = new EventEmitter<Payload>();
+  @Output() payloadChange = new EventEmitter<Payload>();
 
   typeChanged() {
     if (this.payload.type === "none") {
@@ -78,13 +78,13 @@ export class BodyBuilderComponent {
     }
   }
 
-  bodyChanged() {
-    this.bodyChange.emit(this.payload)
+  payloadChanged() {
+    this.payloadChange.emit(this.payload)
   }
 
   formChanged(data: Data[]) {
     this.payload.form = data;
-    this.bodyChanged()
+    this.payloadChanged()
   }
 
 }
