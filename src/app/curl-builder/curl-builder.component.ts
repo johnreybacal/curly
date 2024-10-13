@@ -47,13 +47,13 @@ export class CurlBuilderComponent {
     let curl: string = `curl --request ${this.curl.method} --url ${this.curl.url}`
 
     if (this.curl.payload?.type && this.curl.payload?.type !== "none") {
-      curl += ` --header "Content-type: ${this.curl.payload.type}"`
+      curl += `\n\t--header "Content-type: ${this.curl.payload.type}"`
 
       if (this.curl.payload?.type === "application/json") {
-        curl += ` --data '${this.curl.payload.text}'`
+        curl += `\n\t--data '${this.curl.payload.text}'`
       } else {
         for (let data of this.curl.payload?.form ?? []) {
-          curl += ` --form ${data.field}=${data.value}`
+          curl += `\n\t--form ${data.field}=${data.value}`
         }
       }
     }
